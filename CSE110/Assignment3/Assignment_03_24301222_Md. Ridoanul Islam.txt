@@ -1,0 +1,306 @@
+ 
+//task01 
+import java.util.Scanner;
+public class task01
+{
+    public static void main(String[] task01)
+    {  
+	   int i= 18;
+       while(i <63)
+	   {
+		   System.out.print(i + ", ");
+		   i+=9;
+	   }
+			System.out.print(i);
+    }
+}    
+    
+ 
+//task02 
+import java.util.Scanner;
+public class task02
+{
+    public static void main(String[] task02)
+    {  	
+		int j = 1, i;
+       for(i= 18;i <63;i+=9)
+	   {   
+		   System.out.print(i*(int) Math.pow(-1, j + 1)+ ", ");	
+			j++;
+	   }
+			System.out.print(i*(int) Math.pow(-1, j + 1));	
+    }
+}    
+     
+//task03 
+import java.util.Scanner;
+public class task03
+{
+    public static void main(String[] task03)
+    {
+	int sum = 0;
+	for(int i = 1; i<=600;i++)
+	{
+		if(i%7==0&i%9==0)
+		{
+			sum +=i;
+		}
+		
+	}
+	System.out.print("sum of multiples of both 7 and 9 up to 600 is "+sum);
+    }
+}    
+     
+//task04 
+
+public class task04
+{
+    public static void main(String[] gaben)
+    {
+    int sum = 0;
+	for(int i = 1; i<=600;i++)
+	{
+		if(i%7==0||i%9==0)
+		{
+			sum +=i;
+		}
+		
+	}
+	System.out.print("addition of all numbers that are multiples of either 7 or 9 or both up to 600 is "+sum);
+    }  
+}   
+//task05 
+
+public class task05
+{
+    public static void main(String[] gaben)
+    {
+    int sum = 0;
+	for(int i = 1; i<=600;i++)
+	{
+		if(i%7==0&i%9==0)
+		{
+			continue;
+		} 
+		else if(i%7==0||i%9==0)
+		{
+			sum +=i;
+		}
+		
+	}
+	System.out.print("addition of all numbers that are multiples of either 7 or 9 but not both, up to 600 is "+sum);
+    }  
+}   
+//task06 
+import java.util.Scanner;
+
+public class task06 {
+    public static void main(String[] Gaben) {
+        Scanner x = new Scanner(System.in);
+		System.out.print
+		("Input the value of n: "); 
+        int n = x.nextInt();  
+		x.close();
+        int y = 0;
+        for (int i = 1; i <= n; i++) {
+            y += Math.pow(i,2) * (int) Math.pow(-1, i + 1);
+        }
+        System.out.println("Output is " + y); 
+    }
+}
+ 
+//task07 
+import java.util.Scanner;
+public class task07
+{
+    public static void main(String[] Gaben)
+    {
+        Scanner x = new Scanner(System.in);
+		System.out.print("provide a random number: ");
+		int o = x.nextInt();
+        x.close();
+		int count=0;
+		System.out.println("Divisors of "+o+": ");
+		for(int i = 1; i<=o; i++)
+		{
+			if(6%i!=0)
+			{
+				continue;
+			}
+			else
+			{
+				System.out.println(i);
+				count++;
+			}
+		}
+		System.out.println("Total Divisors: "+count);
+
+    }
+}     
+//task08 
+import java.util.Scanner;
+public class task08
+{
+    public static void main(String[] Gaben)
+    {
+        Scanner x = new Scanner(System.in);
+		System.out.print("Number of terms: ");
+		int terms = x.nextInt();
+        int sum = 0;
+		int odd;
+        x.close();
+		System.out.println("The odd numbers are: ");
+		for(int i = 1; i<=terms; i++)
+		{
+			odd = 2*i-1;
+			System.out.println(odd);
+			sum+=odd;
+		}
+		System.out.println("The Sum of odd Natural Numbers up to "+terms+" terms is: "+sum);
+    }
+}    
+     
+//task09 
+
+public class task09
+{
+    public static void main(String[] Gaben)
+    {
+		int sum = 0;
+		for(int i = 1; i<=10; i++)
+		{
+			System.out.println("Current number: "+i+", Sum: "+ (sum+=i));
+		}
+    }
+}     
+//task10 
+import java.util.Scanner;
+public class task10
+{
+    public static void main(String[] Gaben)
+    {
+		Scanner x = new Scanner(System.in);
+		System.out.print("Enter the value of n: ");
+		int n = x.nextInt();
+		int sum = 0;
+		for(int i = 1; i<=n; i++)
+		{
+			if((i%5==0)&(i%3!=0))
+			{
+				System.out.println(i);
+			}
+		}
+    }
+}     
+//task11 
+import java.util.Scanner;
+public class task11
+{
+    public static void main(String[] Gaben)
+    {
+		Scanner x = new Scanner(System.in);
+		System.out.print("Provide digits: ");
+		int n = x.nextInt();
+		int count = 0;
+		while(n>0)
+		{
+			n/=10;
+			count++;
+		}
+		System.out.print("Total digits = "+count);
+    }
+}     
+//task12 
+import java.util.Scanner;
+public class task12
+{
+    public static void main(String[] Gaben)
+    {
+		Scanner x = new Scanner(System.in);
+		System.out.print("Provide digits: ");
+		int n = x.nextInt();
+		int count = 0;
+		while(n>0&n/10>0)
+		{
+				System.out.print((n%10)+", ");
+				n/=10;			
+		}
+				System.out.print((n%10));
+    }
+}     
+//task13 
+import java.util.Scanner;
+public class task13
+{
+    public static void main(String[] Gaben)
+    {
+		Scanner x = new Scanner(System.in);
+		System.out.print("Provide digits: ");
+		int num = x.nextInt(), count = -1, numtemp = num;
+		while(numtemp>0)
+		{
+			numtemp/=10;
+			count++;
+		}
+		//System.out.print("Total digits = "+count);
+		int temp = (int)Math.pow(10, count);
+		while(true)
+		{
+			if(num<=9){break;}
+			System.out.print(num/temp+", ");
+			num %= temp; 
+			temp /= 10;
+		}
+			System.out.print(num/temp);
+    }
+}   
+//task14 
+import java.util.Scanner;
+public class task14
+{
+    public static void main(String[] Gaben)
+    {
+		Scanner x = new Scanner(System.in);
+		System.out.print("Provide number: ");
+		int num = x.nextInt();
+		for(int i = 2; i<=9;i++)
+		{
+			if(num%i==0 && (num!=i))
+			{
+				System.out.print(num+" is not a prime number");
+				break;
+			}
+			else if((num%i==0) && (num==i))
+			{
+				System.out.print(num+" is a prime number");
+			}
+		}
+    }
+}     
+//task15 
+import java.util.Scanner;
+public class task15
+{
+    public static void main(String[] Gaben)
+    {
+		Scanner x = new Scanner(System.in);
+		System.out.print("Enter number to check perfect number: ");
+		int num = x.nextInt();
+		int sum = 0;
+		for(int i = 1; i<num; i++)
+		{
+				if(num%i==0)
+				{			
+					sum+=i;
+				}
+		}
+				if(sum==num)
+				{
+					System.out.print(num+" is a perfect number");
+				}
+				else
+				{
+					System.out.print(num+" is not a perfect number");
+				}
+    }
+}     

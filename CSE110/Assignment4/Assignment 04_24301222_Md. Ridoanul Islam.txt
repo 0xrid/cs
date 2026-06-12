@@ -1,0 +1,326 @@
+ 
+//task01 
+import java.util.Scanner;
+public class task01
+{
+    public static void main(String[] Gaben)
+    {
+        Scanner x = new Scanner(System.in);
+        System.out.print("How man numbers huh? ");
+		int numb = x.nextInt(), num,max=Integer.MIN_VALUE,min=Integer.MAX_VALUE,sum=0,count=0;
+        
+		for(int i =1; i<=numb;i++)
+		{
+			System.out.print("Sl. "+i+" number: ");
+			num = x.nextInt();
+			if((num%2==0)&&(num>0))
+			{
+				if(num<min)
+			{
+				min=num;
+			} if(num>max)
+			{
+				max=num;
+			}
+			count++;
+			sum+=num;
+			}
+		}
+		x.close();
+		System.out.println("Max: "+max);
+		System.out.println("Min: "+min);
+		System.out.println("Average: "+sum/count);
+    }
+}    
+    
+ 
+//task02 
+import java.util.Scanner;
+public class task02
+{
+    public static void main(String[] Gaben)
+    {
+        Scanner x = new Scanner(System.in); 
+		int num;		
+		while(true)
+		{
+			System.out.print("Enter number: ");
+			num = x.nextInt();
+			if(num<0)
+			{
+				break;
+			}
+			else
+			{
+				System.out.println(num+" ^ 2 = "+(int)Math.pow(num,2));
+			}
+		}
+         x.close();
+    }
+}    
+    
+ 
+//task03 
+import java.util.Scanner;
+public class task03
+{
+    public static void main(String[] Gaben)
+    {
+        Scanner x = new Scanner(System.in);
+		System.out.print("Provide an integer bruh: ");
+		int i = x.nextInt();
+		int neg =0, neggar=0, num;
+		for(int j =1; j<=i;j++)
+		{
+			System.out.print("Enter number "+j+": ");
+			num = x.nextInt();
+			if(num<0){
+				neg++;
+			}
+			else{
+				neggar++;
+			}
+		}
+			x.close();
+			System.out.println("\n\n"+neggar+" Non-negative Numbers");
+			System.out.print(neg+" Negative Numbers");
+    }
+}    
+    
+ 
+//task04 
+import java.util.Scanner;
+public class task04 {
+    public static void main(String[] args) {
+        Scanner x = new Scanner(System.in);
+        System.out.print("Enter the amount of \nprime numbers required to print: ");
+        int amount= x.nextInt();
+        x.close();
+        int count = 0
+		for(int num=2;count < amount;num++) 
+		{
+            boolean optimusPrime = true;           
+                for (int i = 2; i <= Math.sqrt(num); i++) 
+				{
+                    if (num % i == 0) 
+					{
+                        optimusPrime= false;
+                        break;
+                    }
+                }
+            
+            if (optimusPrime) 
+			{
+                System.out.println(num);
+                count++;
+            }
+        }
+    }
+}	
+
+ 
+//task05 
+import java.util.Scanner;
+public class task05
+{
+    public static void main(String[] Gaben)
+    {
+        Scanner x = new Scanner(System.in);
+		int Int1 = x.nextInt();
+		int y = 0;
+        //System.out.print(" ");
+        x.close();
+		for(int i =1; i<=Int1;i++)
+		{
+			for(int j=1;j<=i;j++)
+			{
+				y+=j;
+			}
+			
+		}
+		System.out.println("The value of y: "+(-1)*y);
+    }
+}    
+    
+ 
+//task06 
+import java.util.Scanner;
+public class task06
+{
+    public static void main(String[] Gaben)
+    {
+        Scanner x = new Scanner(System.in);
+		int num, count=0;
+		while(true)
+		{
+			count=0;		
+			System.out.print("Enter number: ");
+			num = x.nextInt();
+			if(num%2!=0)
+			{
+				break;
+			}
+			else 
+			{			
+				for(int i = 1; i<=num; i++)
+					{
+							if(num%i!=0)
+								{
+									continue;
+								}
+								 else
+								{
+										count++;
+								}
+					}
+					System.out.println(num +" has "+count+" divisors");
+			}
+		}
+
+    }
+}    
+    
+ 
+//task07 
+import java.util.Scanner;
+
+public class task07{
+    public static void main(String[] args) {
+        Scanner x = new Scanner(System.in);
+		System.out.print("Number of attempt: ");		
+		int corvo = x.nextInt(),X,Y,sum,count;
+		for(int o = 1 ; o<=corvo;o++)
+		{
+			count=0;
+			sum=0;
+			System.out.print("\n\nValue of X: ");
+			X = x.nextInt();
+			System.out.print("Value of Y: ");
+			Y = x.nextInt();
+			while(count<Y)
+			{
+				if(X%2!=0)
+				{
+					sum+=X;
+					count++;
+				}
+				X++;
+			}
+			System.out.println("\nTotal odds: "+sum);
+		}
+	}	
+}		
+		
+        
+         
+//task08 
+import java.util.Scanner;
+public class task08
+{
+	public static void main(String[] args)
+	{
+		Scanner x = new Scanner(System.in);
+		System.out.print("length what bro?: ");
+		int length = x.nextInt();
+		System.out.print("width what bro?: ");
+		int width = x.nextInt();	
+		System.out.print("\n\n");
+		for(int i = 1; i <=width;i++)
+		{
+			for(int j = 1; j <=length;j++)
+			{
+				System.out.print(j+" ");
+			}
+			System.out.print("\n");
+		}
+		System.out.print("\n\n");
+	}
+} 
+//task09 
+import java.util.Scanner;
+public class task09
+{
+	public static void main(String[] args)
+	{
+		Scanner x = new Scanner(System.in);
+		System.out.print("Amount of rows? ");
+		int rows = x.nextInt();
+		System.out.print("\n\n");
+		for(int i =1; i<=rows;i++)
+		{
+			for(int j=rows; j>i;j--)
+			{
+				System.out.print(" ");
+			}
+			
+			for(int k=1; k<=i;k++)
+			{
+				System.out.print(k );
+				
+			}
+			System.out.print("\n");
+		}
+		System.out.print("\n\n");
+	}
+} 
+//task10 
+import java.util.Scanner;
+public class task10
+{
+	public static void main(String[] args)
+	{
+		Scanner x = new Scanner(System.in);
+		System.out.print("Amount of rows? ");
+		int rows = x.nextInt();
+		System.out.print("\n\n");
+		for(int i =1; i<=rows*2;i+=2)
+		{
+			for(int j=rows*2-1; j>i;j--)
+			{
+				System.out.print(" ");
+			}
+			
+			for(int k=1; k<=i;k++)
+				
+			{
+				System.out.print(" "+k);
+				
+			}
+			System.out.print("\n");
+		}
+		System.out.print("\n\n");
+	}
+} 
+//task11 
+import java.util.Scanner;
+public class task11
+{
+    public static void main(String[] Gaben)
+    {
+        Scanner x = new Scanner(System.in);
+        System.out.print("From: ");
+		int corvo = x.nextInt();
+		System.out.print("To: ");
+		int attano = x.nextInt();
+        x.close();
+		System.out.println("Armstrong numbers are: \n");
+		while(corvo<=attano)
+		{
+			int sum=0;
+			int gordon = corvo;
+			while(gordon!=0)
+			{
+			  sum+=(Math.pow((gordon%10),3));
+			  gordon/=10;
+			}
+			if(sum==corvo)
+			{
+				System.out.println(corvo);
+			}
+			corvo++;
+		}
+
+    }
+}    
+    
+ 

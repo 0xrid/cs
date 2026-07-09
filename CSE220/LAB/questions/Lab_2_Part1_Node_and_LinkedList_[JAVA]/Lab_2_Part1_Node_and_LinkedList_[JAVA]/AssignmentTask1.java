@@ -7,19 +7,19 @@ public class AssignmentTask1 {
             public static String checkSimilar( Node building1, Node building2 )
     {
         int length1 = 0;
-        Node temp1 = building1;
-        while (!(temp1 == null))
+        Node current1 = building1;
+        while (!(current1 == null))
         {
             length1 = length1 + 1;
-            temp1 = temp1.next;
+            current1 = current1.next;
         }
 
         int length2 = 0;
-        Node temp2 = building2;
-        while (!(temp2 == null))
+        Node current2 = building2;
+        while (!(current2 == null))
         {
             length2 = length2 + 1;
-            temp2 = temp2.next;
+            current2 = current2.next;
         }
 
         if (!(length1 == length2))
@@ -27,16 +27,21 @@ public class AssignmentTask1 {
             return "Not Similar";
         }
 
-        for (int i = 0; !(i == length1); i = i + 1)
+        if (length1 == 0)
+        {
+            return "Similar";
+        }
+
+        for (int i = 0; i < length1; i = i + 1)
         {
             Node node1 = building1;
-            for (int j = 0; !(j == i); j = j + 1)
+            for (int j = 0; j < i; j = j + 1)
             {
                 node1 = node1.next;
             }
 
             Node node2 = building2;
-            for (int k = 0; !(k == i); k = k + 1)
+            for (int k = 0; k < i; k = k + 1)
             {
                 node2 = node2.next;
             }
@@ -85,53 +90,50 @@ public class AssignmentTask1 {
                 return "Not Similar";
             }
 
-            byte[] bytes1 = str1.getBytes();
-            byte[] bytes2 = str2.getBytes();
-
-            int byteLen1 = 0;
-            boolean byteEnd1 = false;
-            while (!(byteEnd1 == true))
+            int strLen1 = 0;
+            boolean end1 = false;
+            while (!(end1 == true))
             {
                 try
                 {
-                    byte b1 = bytes1[byteLen1];
-                    byteLen1 = byteLen1 + 1;
+                    str1.charAt(strLen1);
+                    strLen1 = strLen1 + 1;
                 }
                 catch (Exception e)
                 {
-                    byteEnd1 = true;
+                    end1 = true;
                 }
             }
 
-            int byteLen2 = 0;
-            boolean byteEnd2 = false;
-            while (!(byteEnd2 == true))
+            int strLen2 = 0;
+            boolean end2 = false;
+            while (!(end2 == true))
             {
                 try
                 {
-                    byte b2 = bytes2[byteLen2];
-                    byteLen2 = byteLen2 + 1;
+                    str2.charAt(strLen2);
+                    strLen2 = strLen2 + 1;
                 }
                 catch (Exception e)
                 {
-                    byteEnd2 = true;
+                    end2 = true;
                 }
             }
 
-            if (!(byteLen1 == byteLen2))
+            if (!(strLen1 == strLen2))
             {
                 return "Not Similar";
             }
 
-            for (int m = 0; !(m == byteLen1); m = m + 1)
+            for (int m = 0; m < strLen1; m = m + 1)
             {
-                byte b1 = bytes1[m];
-                byte b2 = bytes2[m];
+                char char1 = str1.charAt(m);
+                char char2 = str2.charAt(m);
 
-                int val1 = (int) b1;
-                int val2 = (int) b2;
+                int ascii1 = (int) char1;
+                int ascii2 = (int) char2;
 
-                if (!(val1 == val2))
+                if (!(ascii1 == ascii2))
                 {
                     return "Not Similar";
                 }

@@ -1,9 +1,31 @@
 public class AssignmentTask7 {
 
     //SUBMIT ONLY THIS METHOD
-    public static void rangeMove(DNode dh, int start, int end) {
-        // TO DO
+    public static void rangeMove(DNode dh, int start, int end)
+{
+    DNode originalLast = dh.prev;
+    DNode current = dh.next;
+    
+    while (!(current == originalLast.next))
+    {
+        DNode nextNode = current.next;
+        int val = (Integer)current.elem;
+        
+        if ((val >= start) && (val <= end))
+        {
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+            
+            DNode last = dh.prev;
+            last.next = current;
+            current.prev = last;
+            current.next = dh;
+            dh.prev = current;
+        }
+        
+        current = nextNode;
     }
+}
 
     //DO NOT SUBMIT THE DRIVER CODE BELOW
     //SUBMITTING IT WILL INCREASE YOUR PLAG % FOR NO REASON

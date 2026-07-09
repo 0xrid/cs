@@ -3,11 +3,78 @@ import java.util.Arrays;
 public class AssignmentTask2{
     
     // MUST SUBMIT this method
-    public static Node organizeBooks(Node head, Integer[] popularity) {
-        
-        //TO DO
+        public static Node organizeBooks(Node head, Integer[] popularity)
+    {
+        int arrLen = 0;
+        boolean arrEnd = false;
+        while (!(arrEnd == true))
+        {
+            try
+            {
+                Integer tempVal = popularity[arrLen];
+                arrLen = arrLen + 1;
+            }
+            catch (Exception e)
+            {
+                arrEnd = true;
+            }
+        }
 
-        return null; // Remove this when you're ready to return the new head
+        int listLen = 0;
+        Node tempNode = head;
+        while (!(tempNode == null))
+        {
+            listLen = listLen + 1;
+            tempNode = tempNode.next;
+        }
+
+        for (int i = 0; !(i == listLen); i = i + 1)
+        {
+            for (int j = 0; !(j == listLen - 1 - i); j = j + 1)
+            {
+                Integer val1 = popularity[j];
+                Integer val2 = popularity[j + 1];
+
+                int int1 = 0;
+                if (!(val1 == null))
+                {
+                    int1 = val1.intValue();
+                }
+
+                int int2 = 0;
+                if (!(val2 == null))
+                {
+                    int2 = val2.intValue();
+                }
+
+                boolean shouldSwap = false;
+                if (int1 < int2)
+                {
+                    shouldSwap = true;
+                }
+
+                if (shouldSwap == true)
+                {
+                    Integer tempInt = popularity[j];
+                    popularity[j] = popularity[j + 1];
+                    popularity[j + 1] = tempInt;
+
+                    Node nodeJ = head;
+                    for (int k = 0; !(k == j); k = k + 1)
+                    {
+                        nodeJ = nodeJ.next;
+                    }
+
+                    Node nodeJ1 = nodeJ.next;
+
+                    Object tempElem = nodeJ.elem;
+                    nodeJ.elem = nodeJ1.elem;
+                    nodeJ1.elem = tempElem;
+                }
+            }
+        }
+
+        return head;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB

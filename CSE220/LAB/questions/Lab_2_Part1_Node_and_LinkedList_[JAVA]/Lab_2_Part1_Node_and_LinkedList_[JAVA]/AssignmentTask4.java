@@ -2,14 +2,90 @@
 public class AssignmentTask4{
     
     // MUST SUBMIT this method
-    public static Node idGenerator(Node head1, Node head2, Node head3) {
+        public static Node idGenerator(Node head1, Node head2, Node head3)
+    {
+        Node prev = null;
+        Node current = head1;
+        Node nextNode = null;
         
-        //TO DO
-        //Hint: the Node elements are actually Object, you can type cast them
-        //      into int or Integer like the following:
-        //        (int)n.elem  or  (Integer)n.elem
-
-        return null; // Remove this when you're ready to return the new head
+        while (!(current == null))
+        {
+            nextNode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextNode;
+        }
+        
+        head1 = prev;
+        
+        Node temp2 = head2;
+        Node temp3 = head3;
+        
+        while (!(temp2 == null))
+        {
+            Object obj2 = temp2.elem;
+            Object obj3 = temp3.elem;
+            
+            int val2 = 0;
+            boolean obj2NotNull = false;
+            if (!(obj2 == null))
+            {
+                obj2NotNull = true;
+            }
+            
+            if (obj2NotNull == true)
+            {
+                val2 = (int) obj2;
+            }
+            
+            int val3 = 0;
+            boolean obj3NotNull = false;
+            if (!(obj3 == null))
+            {
+                obj3NotNull = true;
+            }
+            
+            if (obj3NotNull == true)
+            {
+                val3 = (int) obj3;
+            }
+            
+            int sum = val2 + val3;
+            
+            boolean sumGTE10 = false;
+            if (sum >= 10)
+            {
+                sumGTE10 = true;
+            }
+            
+            if (sumGTE10 == true)
+            {
+                sum = sum % 10;
+            }
+            
+            temp2.elem = sum;
+            
+            temp2 = temp2.next;
+            temp3 = temp3.next;
+        }
+        
+        Node tail1 = head1;
+        boolean foundTail = false;
+        while (!(foundTail == true))
+        {
+            if (tail1.next == null)
+            {
+                foundTail = true;
+            }
+            else
+            {
+                tail1 = tail1.next;
+            }
+        }
+        
+        tail1.next = head2;
+        
+        return head1;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB

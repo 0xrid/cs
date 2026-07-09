@@ -2,62 +2,104 @@
 public class AssignmentTask3 {
     
     // MUST SUBMIT this method
-        public static Node alternateMerge( Node head1, Node head2 )
+            public static Node alternateMerge( Node head1, Node head2 )
     {
-        if (head1 == null)
+        int len1 = 0;
+        Node temp1 = head1;
+        while (!(temp1 == null))
+        {
+            len1 = len1 + 1;
+            temp1 = temp1.next;
+        }
+        
+        int len2 = 0;
+        Node temp2 = head2;
+        while (!(temp2 == null))
+        {
+            len2 = len2 + 1;
+            temp2 = temp2.next;
+        }
+        
+        boolean isHead1Null = false;
+        if (len1 == 0)
+        {
+            isHead1Null = true;
+        }
+        
+        boolean isHead2Null = false;
+        if (len2 == 0)
+        {
+            isHead2Null = true;
+        }
+        
+        if (isHead1Null == true)
         {
             return head2;
         }
-
-        if (head2 == null)
+        
+        if (isHead2Null == true)
         {
             return head1;
         }
-
+        
         Node current1 = head1;
         Node current2 = head2;
-        Node result = head1;
-
-        boolean list1HasMore = true;
-        boolean list2HasMore = true;
-
-        while (!(list1HasMore == false && list2HasMore == false))
+        
+        boolean keepMerging = true;
+        
+        while (!(keepMerging == false))
         {
-            if (current1 != null)
+            boolean c1IsNull = false;
+            if (current1 == null)
             {
-                Node next1 = current1.next;
-
-                if (current2 != null)
-                {
-                    Node next2 = current2.next;
-
-                    current1.next = current2;
-
-                    if (next1 != null)
-                    {
-                        current2.next = next1;
-                    }
-                    else
-                    {
-                        current2.next = null;
-                        list2HasMore = false;
-                    }
-
-                    current1 = next1;
-                    current2 = next2;
-                }
-                else
-                {
-                    list2HasMore = false;
-                }
+                c1IsNull = true;
+            }
+            
+            boolean c2IsNull = false;
+            if (current2 == null)
+            {
+                c2IsNull = true;
+            }
+            
+            if (c1IsNull == true)
+            {
+                keepMerging = false;
             }
             else
             {
-                list1HasMore = false;
+                if (c2IsNull == true)
+                {
+                    keepMerging = false;
+                }
+                else
+                {
+                    Node nextNode1 = current1.next;
+                    Node nextNode2 = current2.next;
+                    
+                    current1.next = current2;
+                    
+                    boolean next1IsNull = false;
+                    if (nextNode1 == null)
+                    {
+                        next1IsNull = true;
+                    }
+                    
+                    if (next1IsNull == true)
+                    {
+                        current2.next = nextNode2;
+                        keepMerging = false;
+                    }
+                    else
+                    {
+                        current2.next = nextNode1;
+                        current1 = nextNode1;
+                        current2 = nextNode2;
+                    }
+                }
             }
         }
-
-        return result;
+        
+        return head1;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
